@@ -26,6 +26,8 @@ import {TranslateHttpLoader} from '@ngx-translate/http-loader';
 
 import {MatMenuModule} from '@angular/material/menu';
 import { NotFoundComponent } from './not-found/not-found.component';
+import { TestComponent } from './test/test.component';
+import { App1Component } from './app1/app1.component';
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http);
@@ -39,7 +41,9 @@ export function HttpLoaderFactory(http: HttpClient) {
     NewtestComponent,
     UserComponent,
     TestCasePipe,
-    NotFoundComponent
+    NotFoundComponent,
+    TestComponent,
+    App1Component
   ],
   imports: [
     BrowserModule,
