@@ -1,0 +1,36 @@
+<table matSort (matSortChange)="sortData($event)">
+    <tr class="testclass">
+        <th mat-sort-header="position">#</th>
+        <th mat-sort-header="name">Name</th>
+        <th mat-sort-header="years">Years old</th>
+        <th mat-sort-header="accaunt">Account name</th>
+        <th mat-sort-header="email">email</th>
+    </tr>
+
+    <tr *ngFor="let user of sortedData">
+        <td>{{user.position}}</td>
+        <td>{{user.name}}</td>
+        <td>{{user.years}}</td>
+        <td>{{user.accaunt}}</td>
+        <td>{{user.email}}</td>
+    </tr>
+</table>
+
+<div>
+    <form>
+        <label for="userName">Введите имя</label>
+        <input type="text" #userName name="userName" id="">
+        <br>
+        <label for="years">Количество лет</label>
+        <input type="text" #years name="years" id="">
+        <br>
+        <label for="accaunt">Имя аккаунта</label>
+        <input type="text" #accaunt name="accaunt" id="">
+        <br>
+        <label for="email">email</label>
+        <input type="text" #email name="email" id="">
+        <br>
+        <button type="submit" value="" (click)="addUser(this.userName.value, this.years.value, this.accaunt.value, this.email.value); sortData($event)">Save</button>
+
+    </form>
+</div>

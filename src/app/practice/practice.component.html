@@ -1,0 +1,59 @@
+<p [style]="userStyle">component {{message}} some text</p>
+<!-- #color - ссылка на элемент input-а -->
+<input [style]="userStyle" type="text" #color [(ngModel)]="userColor" (input)="changeColor(color.value)" />
+<div>{{ color.value}} </div>
+
+
+<!-- атрибуты  -->
+<div [id]="myID" [ngStyle]="customStyle" (click)="changeBackground()">Hello</div>
+<!-- можно и так написать [ngStyle]="{'color': 'red'}" -->
+<button (click)="test(color.value)">Click me!</button>
+<!-- [(ngModel)] - автоматически отслеживает значение value -->
+<!-- и работает в обе стороны, со стороны пользователя и со стороны typeScript -->
+
+<div [ngClass]="{
+    'hide': isHidden,
+    'test': myID=='someID'
+}">Important message</div>
+<button (click)="isHidden = !isHidden">{{isHidden ? 'Show':'Hide'}}</button>
+
+<!-- СТРУКТУРНЫЕ ДИРЕКТИВЫ -->
+<button (click)="age=2">Change to 2</button>
+<button (click)="age=20">Change to 20</button>
+<div *ngIf="age>=18">Доступ разрешен!</div>
+<div *ngIf="age<18">Доступ запрещен!</div>
+
+<!-- второй пример с использованием else -->
+<!-- но назвать объект на прямую нельзя нужно с использованием ng-template -->
+<button (click)="age=2">Change to 2</button>
+<div *ngIf="age>=18; else denied">Доступ разрешен!</div>
+<ng-template #denied>
+    <div>Доступ запрещен!</div>
+</ng-template>
+
+<div *ngFor="let user of users; let i = index">
+    <span>{{i+1}}. </span>
+    <span>{{ user.name }} </span>
+    <span>{{ user.age }}</span>
+</div>
+
+<div [ngSwitch]="month">
+    <ng-template ngSwitchCase="1">
+        <span>January</span>
+    </ng-template>
+    <ng-template ngSwitchCase="2">
+        <span>Fabruary</span>
+    </ng-template>
+    <ng-template ngSwitchCase="3">
+        <span>March</span>
+    </ng-template>
+    <ng-template ngSwitchDefault>
+        <span>Unknown</span>
+    </ng-template>
+</div>
+
+<div style="width:320px">
+    <app-user *ngFor="let user of users" [person]="user" (onDelete)="remove($event)"></app-user>
+</div>
+
+<button (click)="toggle()">Toggle</button>

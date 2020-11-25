@@ -1,0 +1,100 @@
+<div>{{message}}</div>
+
+<form>
+    <input type="text" placeholder="Input name" [style]='myStyle' #userInput (change)='isHidden=false'>
+    <input type="button" value="OK" on-click='isHidden=false'>
+    <input type="reset">
+</form>
+
+<div [ngClass]="{
+    'hide': isHidden, 
+    'bigLetters': true }" id="testDiv">
+    {{"Hi, " + userInput.value+" it's pleasure to see you!!!"}}
+</div>
+
+
+
+
+
+
+<br>
+<div>Пределы изменения цифры от -3 до +3! </div>
+<button on-click='changeTestVar(1)'>Increase test number +1</button>
+<button on-click='changeTestVar(-1)'>Reduce test number -1</button>
+<div>{{testVar}}</div>
+<div *ngIf='testVar<-3'>Вышли за нижний предел!</div>
+<div *ngIf='testVar>3'>Вышли за верхний предел!</div>
+
+<br>
+
+<div [style]="{'font-size':'18px'}">
+    <form>
+        <div>Создание аккаунта</div>
+        <div>
+            <div>Имя <input type="text" autofocus #name></div>
+            <div>Фамилия <input type="text" #surname></div>
+        </div>
+
+        <div>
+
+
+
+            <label for="birthday">Дата рождения</label>
+            <select name="day" id="dayBirth" aria-placeholder="День" required>
+                <option value="" ></option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="1">1</option>
+                <option value="1">1</option>
+
+
+            </select>
+
+            <!-- <div style="display:inline-block; min-height:290px;">
+                <uib-datepicker year-range="0" show-weeks="false" max-mode="month" ng-model="dt" min-date="minDate" class="well well-sm" custom-class="getDayClass(date, mode)"></uib-datepicker>
+            </div> -->
+
+            <input type="number" min=1 max=12 #month>
+            <input type="number" min=1900 max=2020 #year>
+        </div>
+
+
+        <div>
+            <label for="sex">Пол:</label>
+            <input type="radio" name="gender" value='male' checked> Мужской
+            <input type="radio" name="gender" value='female'> Женский
+        </div>
+
+        <div>Имя аккаунта
+            <input type="text" #accountName>
+        </div>
+
+        <div>Пароль
+            <input type="password" #password>
+
+        </div>
+
+        <div>
+            Повторите пароль
+            <input type="password" #repeatPassword>
+        </div>
+
+        <input type="submit" value='Создать' on-click='addUser(name.value, surname.value, accountName.value, password.value, repeatPassword.value)'>
+
+    </form>
+</div>
+
+<div *ngFor='let user of users'>
+    <span>{{ user.name }} </span>
+    <span>{{ user.surname }} </span>
+    <span>{{ user.day }} </span>
+    <span>{{ user.month }} </span>
+    <span>{{ user.year }} </span>
+    <span>{{ user.accountName }} </span>
+    <span>{{ user.password }} </span>
+    <span>{{ user.repeatPassword }} </span>
+
+</div>
+
+<br>
