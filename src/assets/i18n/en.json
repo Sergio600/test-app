@@ -1,4 +1,5 @@
 {
     "title": "My application",
-    "delete_text": "Delete"
+    "delete_text": "Delete",
+    "part1_text": "Part 1 works"
 }

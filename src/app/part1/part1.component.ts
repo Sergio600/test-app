@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { APIService } from 'src/service/api.service';
 
 @Component({
   selector: 'app-part1',
@@ -7,9 +8,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class Part1Component implements OnInit {
 
-  constructor() { }
+facts=[];
+
+  constructor(private api: APIService) { }
 
   ngOnInit(): void {
+    this.api.getCatFacts().then(
+      (data: any)=>{
+       this.facts = data.all;
+      },
+      (err)=>{
+        console.log(err);
+      }
+    );
   }
-
 }

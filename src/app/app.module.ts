@@ -28,6 +28,8 @@ import {MatMenuModule} from '@angular/material/menu';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { TestComponent } from './test/test.component';
 import { App1Component } from './app1/app1.component';
+import { APIService } from 'src/service/api.service';
+import { CatFactComponent } from './cat-fact/cat-fact.component';
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http);
@@ -43,7 +45,8 @@ export function HttpLoaderFactory(http: HttpClient) {
     TestCasePipe,
     NotFoundComponent,
     TestComponent,
-    App1Component
+    App1Component,
+    CatFactComponent
   ],
   imports: [
     BrowserModule,
@@ -68,7 +71,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     AppRoutingModule
 
   ],
-  providers: [AppService],
+  providers: [AppService, APIService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

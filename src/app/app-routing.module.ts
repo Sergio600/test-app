@@ -36,6 +36,10 @@ const routes: Routes = [
         ]
     },
     {
+        path: 'window',
+        loadChildren: ()=>import('./window/window.module').then((mod)=>mod.WindowModule)
+    },
+    {
         path: '**', // подходит любой адрес 
         component: NotFoundComponent
     }
