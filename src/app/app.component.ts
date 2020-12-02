@@ -26,4 +26,6 @@ export class AppComponent {
   setLang(lang){
       this.translate.use(lang);
   }
+
+  
 }

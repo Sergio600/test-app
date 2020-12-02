@@ -5,7 +5,7 @@ import { App2Component } from './app2/app2.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { PracticeComponent } from './practice/practice.component';
 import { TestComponent } from './test/test.component';
-import { UserComponent } from './user/user.component';
+import { UserInfoComponent } from './user-info/user-info.component';
 
 const routes: Routes = [
     {
@@ -18,8 +18,8 @@ const routes: Routes = [
         component: PracticeComponent
     }, 
     {
-        path: 'user',
-        component: UserComponent
+        path: 'user/:id/info',
+        component: UserInfoComponent
     },
     {
         path: 'test',

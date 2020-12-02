@@ -30,6 +30,7 @@ import { TestComponent } from './test/test.component';
 import { App1Component } from './app1/app1.component';
 import { APIService } from 'src/service/api.service';
 import { CatFactComponent } from './cat-fact/cat-fact.component';
+import { UserInfoComponent } from './user-info/user-info.component';
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http);
@@ -46,7 +47,8 @@ export function HttpLoaderFactory(http: HttpClient) {
     NotFoundComponent,
     TestComponent,
     App1Component,
-    CatFactComponent
+    CatFactComponent,
+    UserInfoComponent
   ],
   imports: [
     BrowserModule,

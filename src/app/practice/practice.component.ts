@@ -23,14 +23,17 @@ age =20;
 
 users=[
   {
+    id: 1,
     name: "Vasya",
     age: 20
 },
   {
+    id: 2,
     name: "Petya",
    age: 21
 },
   {
+    id: 3,
     name: "Kolya",
     age: 22
 }

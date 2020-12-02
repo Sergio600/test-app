@@ -1,5 +1,6 @@
 <div class="container">
     <div>{{user.name}}</div>
     <div>{{user.age}}</div>
+    <button mat-raised-button color="primary" [routerLink]="'/user/' + user.id + '/info'">Info</button>
     <button mat-raised-button color="warn" (click)="removeUser()">{{ 'delete_text' | translate }}</button>
 </div>
